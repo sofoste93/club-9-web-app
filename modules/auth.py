@@ -1,7 +1,7 @@
 from flask import request, render_template
 from flask import Flask, render_template, redirect, url_for, session
 from werkzeug.security import check_password_hash, generate_password_hash
-from utils import read_from_file, write_to_file, generate_pin
+from modules.utils import read_from_file, write_to_file, generate_pin
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"  # Ceci est nécessaire pour utiliser les sessions dans Flask.
