@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from modules.auth import login, register
 from modules.members import get_members, add_member
 from modules.contributions import get_contributions, add_contribution
