@@ -1,0 +1,19 @@
+        /* Custom styles */
+        body {
+            padding-top: 3rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .welcome-text {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .welcome-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .welcome-text p {
+            font-size: 1.5rem;
+            color: #666;
+        }
