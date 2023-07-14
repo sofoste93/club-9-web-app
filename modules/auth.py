@@ -1,7 +1,7 @@
-from flask import request, render_template
-from flask import Flask, render_template, redirect, url_for, session
+from flask import Flask, render_template
 from werkzeug.security import check_password_hash, generate_password_hash
 from modules.utils import read_from_file, write_to_file, generate_pin
+from flask import session, redirect, url_for
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"  # Ceci est nécessaire pour utiliser les sessions dans Flask.
@@ -15,13 +15,12 @@ def get_user(username):
     return None
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+def login(request):
     if request.method == 'POST':
         username = request.form.get('username')
-        pin = request.form.get('pin')
+        pin = request.form.get('password')  # Change 'pin' to 'password' to match the HTML form
         user = get_user(username)
-        if user and check_password_hash(user['pin'], pin):
+        if user and pin and check_password_hash(user['pin'], pin):
             session['user'] = user
             return redirect(url_for('home'))
         else:
@@ -29,8 +28,7 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
+def register(request):
     if request.method == 'POST':
         username = request.form.get('username')
         user = get_user(username)
@@ -48,7 +46,6 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))

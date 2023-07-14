@@ -3,16 +3,18 @@ import os
 import json
 
 
-def read_from_file(file_name):
-    if not os.path.exists(file_name):
-        return []
-
-    with open(file_name, 'r') as file:
+def read_from_file(filename):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    if not os.path.exists(filename):
+        with open(filename, 'w') as file:
+            json.dump([], file)
+    with open(filename, 'r') as file:
         return json.load(file)
 
 
-def write_to_file(file_name, data):
-    with open(file_name, 'w') as file:
+def write_to_file(filename, data):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, 'w') as file:
         json.dump(data, file)
 
 
