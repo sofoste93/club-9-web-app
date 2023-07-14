@@ -2,38 +2,62 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Connexion - Club-9-App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            padding-top: 3rem;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-form {
+            margin-bottom: 1rem;
+        }
+        .login-form label {
+            font-weight: bold;
+        }
+        .login-form input {
+            margin-bottom: 1rem;
+        }
+        .register-link {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1>Connexion</h1>
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <label for="username">Nom du membre</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">PIN</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-            </form>
-            <p>Vous n'avez pas de compte? <a href="register">S'inscrire</a></p>
+            <div class="login-container">
+                <h1>Connexion</h1>
+                <form class="login-form" action="/login" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nom du membre</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">PIN</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                    </div>
+                </form>
+                <p class="register-link">Vous n'avez pas de compte? <a href="register">S'inscrire</a></p>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- other scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous">
-</script>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
