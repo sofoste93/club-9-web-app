@@ -18,7 +18,7 @@ def get_user(username):
 def login(request):
     if request.method == 'POST':
         username = request.form.get('username')
-        pin = request.form.get('password')  # Change 'pin' to 'password' to match the HTML form
+        pin = request.form.get('password')
         user = get_user(username)
         if user and pin and check_password_hash(user['pin'], pin):
             session['user'] = user
